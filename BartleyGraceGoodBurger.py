@@ -8,7 +8,6 @@ from tkintertoy import Window
 
 class Gui(object):
     def makeGui(self):
-        
         """ The start for making the gui """
         self.dialog = Window()
         self.dialog.setTitle('Good Burger Order')
