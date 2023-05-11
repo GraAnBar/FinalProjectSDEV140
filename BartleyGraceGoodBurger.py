@@ -11,19 +11,20 @@ class Gui(object):
         """ The start for making the gui """
         self.dialog = Window()
         self.dialog.setTitle('Good Burger Order')
-        # start of notebook
-        tabs = ('Food', 'Sides')
-        pages = self.dialog.addNotebook('notebook', tabs)
+        # start of notebook with variables
+        tabs = ('Food', 'Sides')                                            # vairable to title of each tab
+        pages = self.dialog.addNotebook('notebook', tabs)                   # variable for notebook pages
         # Pages 'Food'
         self.food = pages[0]
         self.food.addLabel('title', 'Choose your Main Food Item', width=70)
         self.food.plot('title', row=0)
         self.food.addLabel('Combo')
         self.food.plot('Combo', row=1, column=0)
-        combo = ('Cheeseburger Meal (Cheeseburger, Large Fry, Large Soda', 'Chicken Nugget Meal (Chicken Nuggets, Large Fry, Large Soda)')
+        combo = ('Cheeseburger Meal (Cheeseburger, Large Fry, Large Soda', \
+                 'Chicken Nugget Meal (Chicken Nuggets, Large Fry, Large Soda)')      # variable for the food combo
         self.food.addLabel('Single')
         self.food.plot('Single', row=2, column=1)
-        single = ('Cheeseburger','Chicken Nuggets')
+        single = ('Cheeseburger','Chicken Nuggets')                         # variable for the food single
         self.food.addCheck('combo','Combo',combo, orient='vertical')
         self.food.addCheck('single','Single', single, orient='vertical')
         self.food.set('combo',combo[:0])
@@ -36,10 +37,10 @@ class Gui(object):
         self.sides.plot('title', row=0)
         self.sides.addLabel('Side Item')
         self.sides.plot('Side Item', row=1, column=0)
-        sideItems = ('Fries', 'Salad')
+        sideItems = ('Fries', 'Salad')                                      # variable for the side item
         self.sides.addLabel('Desert')
         self.sides.plot('Desert', row=1, column=1)
-        desert = ('Ice Cream','Chocolate Chip Cookie(C.C.C)')
+        desert = ('Ice Cream','Chocolate Chip Cookie(C.C.C)')               # variable for the side desert item
         self.sides.addCheck('sideItems','Side Item', sideItems, orient='vertical')
         self.sides.addCheck('desert','Desert',desert, orient='vertical')
         self.sides.set('sideItems', sideItems[:0])
@@ -47,10 +48,10 @@ class Gui(object):
         self.sides.set('desert',desert[:0])
         self.sides.plot('desert', row=3)
         # Placing the dialog
-        self.dialog.addButton('addfood', '', [('Add to Order', self.addOrder)])
+        self.dialog.addButton('addfood', '', [('Add to Order', self.addOrder)])       # button to confirm you made an order
         self.dialog.addButton('command', space=20)
         self.dialog.changeWidget('command', 1, text='Exit')
-        self.dialog.addText('summary', 50, 10,'Status')
+        self.dialog.addText('summary', 50, 10,'Status')                     # text box to display results of making order
         self.dialog.plot('summary', row=4, column=0, columnspan=1)
         self.dialog.plot('addfood', row=1, column=0, columnspan=1)
         self.dialog.plot('command', row=2)
