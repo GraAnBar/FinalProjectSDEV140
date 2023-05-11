@@ -12,7 +12,7 @@ class Gui(object):
         self.dialog = Window()
         self.dialog.setTitle('Good Burger Order')
         # start of notebook with variables
-        tabs = ('Food', 'Sides')                                            # vairable to title of each tab
+        tabs = ('Food', 'Sides')                                            # variable to title of each tab
         pages = self.dialog.addNotebook('notebook', tabs)                   # variable for notebook pages
         # Pages 'Food'
         self.food = pages[0]
